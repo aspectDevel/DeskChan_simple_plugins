@@ -1,0 +1,44 @@
+{
+	"manifest_version": 2,
+	"name": "DC: Browser extension",
+	"description": "Browser extension for DeskChan",
+	"version": "0.0.1",
+
+	"icons": {
+		"48": "images/DCicon48.png",
+		"128": "images/DCicon128.png",
+		"16": "images/DCicon16.png"
+	},
+
+	"options_page": "html/options.html",
+
+	"browser_action": {
+		"default_title": "DeskChan",
+		"default_icon": "images/DCicon48.png",
+		"popup": "html/popup.html"
+	},
+
+	"background": {
+		"scripts": [
+			"js/jquery.min.js",
+			"js/background.js"
+		]
+	},
+
+	"content_scripts": [
+		{
+			"matches": [ "*://*/*" ],
+			"js": [
+				"js/jquery.min.js",
+				"js/content.js"
+			]
+		}
+	],
+
+
+	"permissions": [
+		"activeTab",
+		"tabs",
+		"storage"
+	]
+}
